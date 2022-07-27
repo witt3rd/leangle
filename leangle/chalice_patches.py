@@ -15,6 +15,7 @@ original_generate_route_method = SwaggerGenerator._generate_route_method
 
 def patch_generate_swagger() -> Callable:
     """Monkey Patch SwaggerGenerator.generate_swagger."""
+
     def generate_swagger(self,
                          app: Chalice,
                          rest_api: Optional[RestAPI] = None) -> Dict[str, Any]:
@@ -59,6 +60,7 @@ def _add_tags(view: RouteEntry, current: Dict[str, Any]):
 
 def patch_generate_route_method() -> Callable:
     """Monkey Patch SwaggerGenerator._generate_route_method."""
+
     def _generate_route_method(self, view: RouteEntry) -> Dict[str, Any]:
         current = original_generate_route_method(self, view)
         current['responses'] = getattr(
@@ -69,6 +71,7 @@ def patch_generate_route_method() -> Callable:
 
         current = _add_parameters(view, current)
         current = _add_tags(view, current)
+        current['operationId'] = view.view_function.__name__
 
         return current
 

@@ -14,12 +14,12 @@ install_requires = [
 ]
 
 extras_require = {
-    'chalice': ['chalice==1.13.0'],
+    'chalice': ['chalice<2.0.0'],
 }
 
 setup(
     name='leangle',
-    version='0.2.2',
+    version='0.2.3',
     description='Add response descriptions to chalice',
     long_description=read('README.rst'),
     author='Joshua Fehler',
@@ -32,5 +32,6 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 )

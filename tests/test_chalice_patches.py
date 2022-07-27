@@ -24,7 +24,7 @@ def test_chalice_swagger_generator_parameters():
 
     swagger_gen = SwaggerGenerator(
         region='unit_test',
-        deployed_resources={'api_handler_arn': '123456'},
+        deployed_resources={'api_handler_arn': 'arn:aws:execute-api:us-west-2:214515308706:lz52tkrx47/*/GET/'},
     )
     swagger = swagger_gen.generate_swagger(app)
 
@@ -57,7 +57,7 @@ def test_chalice_swagger_generator_response():
 
     swagger_gen = SwaggerGenerator(
         region='unit_test',
-        deployed_resources={'api_handler_arn': '123456'},
+        deployed_resources={'api_handler_arn': 'arn:aws:execute-api:us-west-2:214515308706:lz52tkrx47/*/GET/'},
     )
     swagger = swagger_gen.generate_swagger(app)
 
